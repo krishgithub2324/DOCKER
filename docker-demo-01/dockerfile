@@ -1,0 +1,4 @@
+FROM myimage:v1.0
+LABEL Name="krish"
+RUN yum install vim -y
+RUN yum install git -y
