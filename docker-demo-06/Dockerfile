@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER krish
+LABEL key="krish"
 RUN apt-get update
 RUN apt-get install wget openssh-server -y
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/ssh_config
