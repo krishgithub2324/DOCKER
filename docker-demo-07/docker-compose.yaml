@@ -1,0 +1,25 @@
+version: "3.8"
+services: #global value 
+    database:
+        image: mysql:latest
+        volumes:
+         - ./data:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: krishrc200
+        MYSQL_DATABASE: wordpress
+        MYSQL_USER: wordpress
+        MYSQL_PASSWORD: wordpress
+    wordpress:
+      images:  wordpress
+      depemds_on:
+      - database
+      ports:
+      - 8080:80
+      restart: always
+      environment:
+          WORDPRESS_DB_HOST: database:3306
+          WORDPRESS_DB_USER: wordpress
+          WORDPRESS_DB_PASSWORD: wordpress
+          WORDPRESS_DB_NAME: wordpress
+
+  
